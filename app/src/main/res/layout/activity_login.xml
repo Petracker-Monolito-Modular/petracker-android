@@ -101,16 +101,15 @@
         android:layout_width="182dp"
         android:layout_height="189dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="35dp"
-        android:layout_marginEnd="124dp"
+        android:layout_marginTop="38dp"
+        android:layout_marginEnd="10dp"
         android:layout_marginBottom="38dp"
         android:background="@color/Green"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.063"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.65999997"
-        tools:src="@drawable/_86877059_user_vector_illustration_a_flat_illustration_design_used_for_user_icon_on_a_white_background" />
+        tools:src="@drawable/logo_mk" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
