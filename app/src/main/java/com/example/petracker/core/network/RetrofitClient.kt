@@ -12,7 +12,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
 object RetrofitClient {
-    // Emulador: 10.0.2.2 mapea a localhost de tu PC
     private const val BASE_URL = "http://10.0.2.2:8000/"
 
     fun create(tokenStore: TokenStore): Retrofit {
@@ -42,7 +41,7 @@ object RetrofitClient {
 
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
-            .addConverterFactory(MoshiConverterFactory.create(moshi)) // <- usa el moshi de arriba
+            .addConverterFactory(MoshiConverterFactory.create(moshi))
             .client(client)
             .build()
     }

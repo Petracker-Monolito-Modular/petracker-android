@@ -1,4 +1,3 @@
-// feature_auth/ui/LoginViewModel.kt
 package com.example.petracker.feature_auth.ui
 
 import androidx.lifecycle.ViewModel

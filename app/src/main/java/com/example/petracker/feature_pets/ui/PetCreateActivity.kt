@@ -32,7 +32,7 @@ class PetCreateActivity: ComponentActivity() {
         val btnCancel = findViewById<Button>(R.id.btnCancel)
         btnCancel.setOnClickListener { handleCancel() }
         onBackPressedDispatcher.addCallback(this) { handleCancel() }
-        // Adapters de spinners con los arrays
+
         spSpecies.adapter = ArrayAdapter.createFromResource(
             this, R.array.species_values, android.R.layout.simple_spinner_dropdown_item
         )
@@ -54,11 +54,11 @@ class PetCreateActivity: ComponentActivity() {
             val name = etName.text.toString().trim()
             if (name.isEmpty()) { toast("Nombre requerido"); return@setOnClickListener }
 
-            val species = spSpecies.selectedItem.toString() // ya coincide con el backend
+            val species = spSpecies.selectedItem.toString()
             val sex = spSex.selectedItem.toString()
             val breed = etBreed.text.toString().ifBlank { null }
             val weight = etWeight.text.toString().toDoubleOrNull()
-            val birth = etBirth.text.toString().ifBlank { null } // "YYYY-MM-DD"
+            val birth = etBirth.text.toString().ifBlank { null }
 
             val body = PetCreate(
                 name = name, species = species, sex = sex,
@@ -71,7 +71,7 @@ class PetCreateActivity: ComponentActivity() {
                 btnSave.isEnabled = true
                 r.onSuccess {
                     toast("Mascota creada")
-                    finish() // volver al menú
+                    finish()
                 }.onFailure {
                     toast("Error: ${it.message}")
                 }
@@ -85,7 +85,7 @@ class PetCreateActivity: ComponentActivity() {
             AlertDialog.Builder(this)
                 .setTitle(getString(R.string.discard_changes_title))
                 .setMessage(getString(R.string.discard_changes_msg))
-                .setPositiveButton(getString(R.string.yes)) { _, _ -> finish() }  // vuelve al Menú
+                .setPositiveButton(getString(R.string.yes)) { _, _ -> finish() }
                 .setNegativeButton(getString(R.string.no), null)
                 .show()
         } else {
@@ -99,8 +99,6 @@ class PetCreateActivity: ComponentActivity() {
         val etWeight = findViewById<EditText>(R.id.etWeight)
         val etBirth = findViewById<EditText>(R.id.etBirth)
 
-        // Consideramos “cambios” si hay texto en cualquier campo.
-        // (Ignoramos spinners para evitar falsos positivos por valores por defecto)
         return etName.text.isNotBlank()
                 || etBreed.text.isNotBlank()
                 || etWeight.text.isNotBlank()

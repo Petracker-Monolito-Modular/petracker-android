@@ -22,7 +22,7 @@ class LoginActivity: ComponentActivity() {
     private lateinit var etEmail: EditText
     private lateinit var etPass: EditText
     private lateinit var btnLogin: Button
-    private lateinit var tvGoRegister: TextView   // 👈 DESCOMENTAR
+    private lateinit var tvGoRegister: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,7 +55,7 @@ class LoginActivity: ComponentActivity() {
             )
         }
 
-        // Enter en el teclado envía login
+
         etPass.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == android.view.inputmethod.EditorInfo.IME_ACTION_DONE) {
                 btnLogin.performClick(); true
@@ -80,9 +80,6 @@ class LoginActivity: ComponentActivity() {
             }
         }
 
-        // tvGoRegister.setOnClickListener {
-        //     startActivity(Intent(this, RegisterActivity::class.java))
-        // }
     }
 
     // ---- validación local ----
